@@ -1,0 +1,75 @@
+@font-face {
+  font-family: PandaSpots;
+  src: url(font/PandaSpots-yGAd.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,200&display=swap');
+
+* {
+  background-color: rgba(240, 128, 128, 0.799);
+  color: beige;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: PandaSpots;
+  font-size: 38px;
+}
+
+img {
+  max-width: 25em;
+  max-height: 25em;
+  border: solid beige;
+  border-radius: 12px;
+  margin: 6px;
+}
+img: hover {
+  cursor: pointer;
+}
+#main-content {
+  padding: 12px;
+}
+
+#pop-up {
+  margin-left: 10px;
+  --c: beige; /* the color */
+  --b: 0.1em; /* border length*/
+  --d: 20px; /* the cube depth */
+
+  --_s: calc(var(--d) + var(--b));
+  color: var(--c);
+  border: solid #0000;
+  border-width: var(--b) var(--b) var(--_s) var(--_s);
+  background: conic-gradient(
+        at left var(--d) bottom var(--d),
+        #0000 90deg,
+        rgb(255 255 255 /0.3) 0 225deg,
+        rgb(255 255 255 /0.6) 0
+      )
+      border-box,
+    conic-gradient(at left var(--_s) bottom var(--_s), #0000 90deg, var(--c) 0)
+      0 100% / calc(100% - var(--b)) calc(100% - var(--b)) border-box;
+  transform: translate(calc(var(--d) / -1), var(--d));
+  clip-path: polygon(
+    var(--d) 0%,
+    var(--d) 0%,
+    100% 0%,
+    100% calc(100% - var(--d)),
+    100% calc(100% - var(--d)),
+    var(--d) calc(100% - var(--d))
+  );
+  transition: 0.5s;
+}
+#pop-up:hover {
+  cursor: pointer;
+  transform: translate(0, 0);
+  clip-path: polygon(
+    0% var(--d),
+    var(--d) 0%,
+    100% 0%,
+    100% calc(100% - var(--d)),
+    calc(100% - var(--d)) 100%,
+    0% 100%
+  );
+}
